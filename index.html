@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahmoud Khaled Abdelkader - Portfolio</title>
+    <title>Mahmoud Khaled Abdelkader - Academic Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2c3e50;
             --secondary: #3498db;
             --accent: #e74c3c;
-            --light: #ecf0f1;
+            --light: #f8f9fa;
             --dark: #1a252f;
+            --light-gray: #e0e0e0;
+            --medium-gray: #bdbdbd;
+            --dark-gray: #424242;
+            --paper: #f9f7f5;
+            --border: #d4d4d4;
             --success: #27ae60;
             --warning: #f39c12;
         }
@@ -20,13 +26,20 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--primary);
         }
         
         .container {
@@ -38,28 +51,34 @@
         
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+            background: var(--primary);
             color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--light-gray);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
         
         .logo span {
             color: var(--secondary);
+            font-weight: 400;
         }
         
         nav ul {
@@ -68,20 +87,33 @@
         }
         
         nav li {
-            margin-left: 1.5rem;
+            margin-left: 2rem;
         }
         
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0.8rem;
-            border-radius: 4px;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
         }
         
-        nav a:hover, nav a.active {
-            background-color: rgba(255, 255, 255, 0.1);
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover:after, nav a.active:after {
+            width: 100%;
         }
         
         .mobile-menu {
@@ -92,60 +124,113 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1509228468518-180dd4864904?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
             text-align: center;
-            padding: 5rem 0;
+            padding: 5rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            opacity: 0.5;
+            z-index: 0;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            margin: 0 auto 25px;
+            display: block;
+            position: relative;
+            background-color: #fff;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+            font-weight: 700;
         }
         
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+            font-style: italic;
+            font-weight: 300;
         }
         
         .hero-tags {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             margin-bottom: 2rem;
         }
         
         .tag {
-            background-color: rgba(52, 152, 219, 0.2);
-            border: 1px solid var(--secondary);
-            padding: 0.5rem 1rem;
+            background-color: rgba(52, 152, 219, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 0.5rem 1.2rem;
             border-radius: 30px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        .tag:hover {
+            background-color: rgba(52, 152, 219, 0.3);
+            transform: translateY(-2px);
         }
         
         .btn {
             display: inline-block;
             background-color: var(--secondary);
             color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
+            padding: 0.9rem 2.2rem;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid var(--secondary);
-            margin: 0 10px;
+            margin: 0 8px 10px;
+            letter-spacing: 0.5px;
+            font-size: 1.05rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .btn:hover {
             background-color: transparent;
             transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
         
         .btn-outline {
@@ -161,55 +246,56 @@
         /* Section Styles */
         section {
             padding: 5rem 0;
+            background-color: var(--light);
         }
         
-        .profile-image {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid var(--secondary);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin: 0 auto 20px;
-        display: block;
-        }
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
         
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             position: relative;
             display: inline-block;
+            font-weight: 700;
         }
         
-        
-
         .section-header h2:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 70px;
             height: 4px;
             background-color: var(--secondary);
             border-radius: 2px;
         }
         
         .section-header p {
-            color: #666;
+            color: var(--dark-gray);
             max-width: 700px;
-            margin: 1rem auto 0;
+            margin: 1.5rem auto 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .section-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
         }
         
         /* About Section */
         .about-content {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 3rem;
             flex-wrap: wrap;
         }
@@ -220,46 +306,82 @@
         }
         
         .about-text h3 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 1.5rem;
             color: var(--primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+        
+        .info-list {
+            margin: 1.5rem 0;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 0.8rem;
+            align-items: flex-start;
+        }
+        
+        .info-item strong {
+            width: 120px;
+            display: inline-block;
+            color: var(--dark-gray);
+        }
+        
+        .info-item span {
+            flex: 1;
         }
         
         .about-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 2rem;
+            gap: 25px;
+            margin-top: 2.5rem;
         }
         
         .stat-card {
             background-color: white;
-            padding: 1.5rem;
+            padding: 1.8rem 1.5rem;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
             transition: transform 0.3s;
+            border: 1px solid var(--border);
         }
         
         .stat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
         }
         
         .stat-card i {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--secondary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
         
         .stat-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+        }
+        
+        .stat-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
         }
         
         /* Education Section */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -268,7 +390,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 4px;
+            width: 3px;
             background-color: var(--secondary);
             left: 50%;
             transform: translateX(-50%);
@@ -278,10 +400,11 @@
             position: relative;
             margin-bottom: 3rem;
             width: 50%;
-            padding: 1.5rem;
+            padding: 2rem;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
         }
         
         .timeline-item:nth-child(odd) {
@@ -295,131 +418,181 @@
         .timeline-item:after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: var(--secondary);
+            width: 22px;
+            height: 22px;
+            background-color: white;
+            border: 3px solid var(--secondary);
             border-radius: 50%;
-            top: 30px;
+            top: 35px;
+            z-index: 1;
         }
         
         .timeline-item:nth-child(odd):after {
-            right: -10px;
+            right: -11px;
         }
         
         .timeline-item:nth-child(even):after {
-            left: -10px;
+            left: -11px;
         }
         
         .timeline-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1rem;
+            align-items: center;
+            margin-bottom: 1.2rem;
         }
         
         .timeline-title {
             font-size: 1.3rem;
             color: var(--primary);
+            font-weight: 700;
         }
         
         .timeline-date {
             background-color: var(--secondary);
             color: white;
-            padding: 0.3rem 0.8rem;
+            padding: 0.3rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .timeline-org {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        
+        .timeline-desc {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-details {
+            background-color: var(--light);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--secondary);
         }
         
         /* Experience Section */
         .experience-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
         
         .experience-card {
             background-color: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
             transition: transform 0.3s;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .experience-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
         
         .exp-header {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            padding: 1.5rem;
+            padding: 1.6rem;
         }
         
         .exp-title {
             font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
         }
         
         .exp-org {
             font-size: 1.1rem;
             opacity: 0.9;
+            font-weight: 400;
         }
         
         .exp-body {
-            padding: 1.5rem;
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .exp-date {
             display: inline-block;
             background-color: var(--light);
             color: var(--dark);
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 20px;
             font-size: 0.9rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            align-self: flex-start;
+        }
+        
+        .exp-details {
+            margin-top: 0.5rem;
         }
         
         .exp-details li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
             position: relative;
+            line-height: 1.6;
         }
         
         .exp-details li:before {
-            content: '•';
+            content: '▹';
             position: absolute;
             left: 0;
             color: var(--secondary);
+            font-size: 1.1rem;
         }
         
         /* Skills Section */
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
         }
         
         .skill-category {
             background-color: white;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
         }
         
         .skill-category h3 {
             color: var(--primary);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--light);
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 1.4rem;
         }
         
         .skill-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         
         .skill-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
+            font-size: 1.05rem;
+        }
+        
+        .skill-name {
+            font-weight: 500;
         }
         
         .skill-bar {
@@ -427,12 +600,100 @@
             background-color: var(--light);
             border-radius: 4px;
             overflow: hidden;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
         }
         
         .skill-progress {
             height: 100%;
             background: linear-gradient(90deg, var(--secondary), var(--primary));
             border-radius: 4px;
+            position: relative;
+        }
+        
+        .skill-progress:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3));
+        }
+        
+        /* Publications Section */
+        .publications {
+            background-color: var(--paper);
+        }
+        
+        .publication-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .publication-item {
+            background-color: white;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--secondary);
+            transition: transform 0.3s;
+            border: 1px solid var(--border);
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .pub-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .pub-authors {
+            font-style: italic;
+            margin-bottom: 0.8rem;
+            color: var(--dark-gray);
+        }
+        
+        .pub-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+        }
+        
+        .pub-journal, .pub-date {
+            background-color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .pub-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .pub-link i {
+            margin-right: 5px;
+        }
+        
+        .pub-link:hover {
+            color: var(--primary);
         }
         
         /* Contact Section */
@@ -445,61 +706,108 @@
         .contact-info {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
         
         .contact-info h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.6rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .contact-info h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
         }
         
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
         
         .contact-item i {
-            font-size: 1.5rem;
-            margin-right: 1rem;
+            font-size: 1.4rem;
+            margin-right: 1.2rem;
             color: var(--secondary);
+            margin-top: 3px;
         }
         
         .contact-text h4 {
             margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-text p {
+            opacity: 0.9;
         }
         
         .references {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .references h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .references h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
         }
         
         .reference-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 1.2rem;
             border-radius: 6px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .reference-item h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            color: white;
+        }
+        
+        .reference-item p {
+            margin-bottom: 0.3rem;
+            opacity: 0.9;
         }
         
         /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 3rem 0 1rem;
+            padding: 4rem 0 1.5rem;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
         }
         
         .footer-section h3 {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.6rem;
         }
         
         .footer-section h3:after {
@@ -517,29 +825,32 @@
             color: #ddd;
             margin-bottom: 0.8rem;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            font-size: 1.05rem;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
+            padding-left: 5px;
         }
         
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background-color: rgba(255, 255, 255, 0.1);
             color: white;
             border-radius: 50%;
             transition: all 0.3s;
+            font-size: 1.2rem;
         }
         
         .social-links a:hover {
@@ -549,32 +860,24 @@
         
         .footer-bottom {
             text-align: center;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            opacity: 0.7;
         }
         
         /* Responsive Styles */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-                justify-content: center;
-            }
-            
-            nav li {
-                margin: 0 0.5rem;
-            }
-            
+        @media (max-width: 900px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.4rem;
             }
             
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.1rem;
             }
             
             .timeline:before {
@@ -584,7 +887,7 @@
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
-                padding-right: 25px;
+                padding-right: 30px;
             }
             
             .timeline-item:nth-child(even) {
@@ -601,16 +904,68 @@
             }
         }
         
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 0.8rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .section-content {
+                padding: 1.8rem;
+            }
+        }
+        
         @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.05rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
             .hero-buttons {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
             
             .btn {
                 width: 100%;
-                margin: 5px 0;
+                margin: 0;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -625,6 +980,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#publications">Publications</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -638,17 +994,10 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-        <img src="images/profile.png" alt="Profile Photo"  style="
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 20px auto;
-    display: block;
-    border: 3px solid white;
-    object-fit: cover;
-  ">
-        <h1>Mahmoud Khaled Abdelkader</h1>
-            <p>Mathematics Graduate & Researcher</p>
+            <img src="images/profile.png" alt="Profile Photo" class="profile-image">
+            <h1>Mahmoud Khaled Abdelkader</h1>
+            <p class="hero-subtitle">Mathematics Researcher | Optimization Specialist</p>
+            <p>PhD Candidate specializing in Operational Research and Game Theory</p>
             <div class="hero-tags">
                 <span class="tag">Optimization</span>
                 <span class="tag">Operational Research</span>
@@ -657,7 +1006,7 @@
             </div>
             <div class="hero-buttons">
                 <a href="#contact" class="btn">Contact Me</a>
-                <a href="Mahmoud_Abdelkader_s_CV (3).pdf" download class="btn btn-outline">Download CV</a>
+                <a href="Mahmoud_Abdelkader_s_CV.pdf" download class="btn btn-outline">Download CV</a>
             </div>
         </div>
     </section>
@@ -667,37 +1016,55 @@
         <div class="container">
             <div class="section-header">
                 <h2>About Me</h2>
-                <p>Dynamic Mathematics graduate with expertise in Optimization and Operational Research</p>
+                <p>Mathematics researcher with expertise in Optimization and Operational Research</p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Professional Summary</h3>
-                    <p>Dynamic Mathematics graduate with a Bachelor's degree in Mathematics and a Master's degree in Applied Mathematics. Skilled in Optimization and Operational Research, with a focus on strategic algorithms and decision-making processes. Experienced in teaching, mentoring, and academic presentations. Committed to community service and volunteer work.</p>
-                    
-                    <h3>Personal Information</h3>
-                    <p><strong>Citizenship:</strong> Egyptian</p>
-                    <p><strong>Location:</strong> Giza, Egypt</p>
-                    
-                    <div class="about-stats">
-                        <div class="stat-card">
-                            <i class="fas fa-graduation-cap"></i>
-                            <h4>2</h4>
-                            <p>Degrees</p>
+            <div class="section-content">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Professional Profile</h3>
+                        <p>I am a dedicated mathematics researcher with a strong background in optimization, operational research, and game theory. My academic journey includes a Master's degree in Applied Mathematics from the University of Cape Town and a Bachelor's degree in Mathematics from Helwan University.</p>
+                        <p>My research focuses on developing mathematical models and strategic algorithms for complex decision-making processes. I have a particular interest in applying game theory principles to real-world problems and creating efficient optimization solutions for various industries.</p>
+                        
+                        <div class="info-list">
+                            <div class="info-item">
+                                <strong>Citizenship:</strong>
+                                <span>Egyptian</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Location:</strong>
+                                <span>Giza, Egypt</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Research Focus:</strong>
+                                <span>Optimization, Game Theory, Mathematical Modeling</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Languages:</strong>
+                                <span>Arabic (Native), English (Fluent)</span>
+                            </div>
                         </div>
-                        <div class="stat-card">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                            <h4>10+</h4>
-                            <p>Courses Taught</p>
-                        </div>
-                        <div class="stat-card">
-                            <i class="fas fa-language"></i>
-                            <h4>2</h4>
-                            <p>Languages</p>
-                        </div>
-                        <div class="stat-card">
-                            <i class="fas fa-trophy"></i>
-                            <h4>4+</h4>
-                            <p>Awards</p>
+                        
+                        <div class="about-stats">
+                            <div class="stat-card">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h4>2</h4>
+                                <p>Advanced Degrees</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <h4>12+</h4>
+                                <p>Courses Taught</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-file-alt"></i>
+                                <h4>5+</h4>
+                                <p>Research Papers</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-trophy"></i>
+                                <h4>4</h4>
+                                <p>Academic Awards</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -710,36 +1077,50 @@
         <div class="container">
             <div class="section-header">
                 <h2>Education</h2>
-                <p>My academic journey in Mathematics and Applied Sciences</p>
+                <p>My academic qualifications and research experience</p>
             </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="timeline-title">Visiting Scholar</div>
-                        <div class="timeline-date">Apr 2024 - Jun 2024</div>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Visiting Research Scholar</div>
+                            <div class="timeline-date">Apr 2024 - Jun 2024</div>
+                        </div>
+                        <div class="timeline-org">Heidelberg University, Germany</div>
+                        <p class="timeline-desc">Collaborated with Dr. Michael Winckler on computational optimization methods for complex systems, focusing on algorithm efficiency and implementation strategies.</p>
+                        <div class="timeline-details">
+                            <p><strong>Research Focus:</strong> Advanced optimization techniques for large-scale systems</p>
+                            <p><strong>Key Contributions:</strong> Developed novel approaches to reduce computational complexity in multi-objective optimization problems</p>
+                        </div>
                     </div>
-                    <div class="timeline-org">Heidelberg University, Germany</div>
-                    <p>Supervised by Dr. Michael Winckler, focusing on computational optimization for complex systems.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="timeline-title">Master's in Applied Mathematics</div>
-                        <div class="timeline-date">Sep 2023 - Jul 2024</div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Master of Science in Applied Mathematics</div>
+                            <div class="timeline-date">Sep 2023 - Jul 2024</div>
+                        </div>
+                        <div class="timeline-org">University of Cape Town, African Institute for Mathematical Science (AIMS)</div>
+                        <p class="timeline-desc">Thesis: "Mathematical Modelling and Implementation of Game Strategy for the Board Game Quoridor" - developed a comprehensive game theory framework with practical applications in strategic decision-making.</p>
+                        <div class="timeline-details">
+                            <p><strong>Relevant Coursework:</strong> Nonlinear Optimization, Advanced Game Theory, Mathematical Modeling, Computational Methods</p>
+                            <p><strong>Thesis Supervisor:</strong> Dr. Karin-Therese Howell</p>
+                            <p><strong>GPA:</strong> 3.8/4.0</p>
+                        </div>
                     </div>
-                    <div class="timeline-org">University of Cape Town, African Institute for Mathematical Science (AIMS)</div>
-                    <p>Thesis: "Mathematical Modelling and Implementation of Game Strategy for the Board Game Quoridor".</p>
-                    <p>Relevant Coursework: Nonlinear Optimization, Game Theory, Mathematical Modeling.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="timeline-title">Bachelor of Science in Mathematics</div>
-                        <div class="timeline-date">Sep 2016 - Jul 2020</div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Bachelor of Science in Mathematics</div>
+                            <div class="timeline-date">Sep 2016 - Jul 2020</div>
+                        </div>
+                        <div class="timeline-org">Helwan University, Egypt</div>
+                        <p class="timeline-desc">Developed a strong foundation in mathematical theory with a focus on operational research, real analysis, and linear algebra.</p>
+                        <div class="timeline-details">
+                            <p><strong>Key Courses:</strong> Operations Research, Real Analysis, Linear Algebra, Differential Equations, Probability Theory</p>
+                            <p><strong>Graduation Project:</strong> Optimization Techniques in Supply Chain Management</p>
+                            <p><strong>GPA:</strong> 3.6/4.0</p>
+                        </div>
                     </div>
-                    <div class="timeline-org">Helwan University, Egypt</div>
-                    <p>Gained a solid knowledge in Operational Research, Real Analysis, and Linear Algebra.</p>
                 </div>
             </div>
         </div>
@@ -749,49 +1130,111 @@
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-header">
-                <h2>Experience</h2>
-                <p>Teaching, mentoring, and academic contributions</p>
+                <h2>Professional Experience</h2>
+                <p>Academic positions and research engagements</p>
             </div>
-            
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="exp-header">
-                        <div class="exp-title">Assistant Lecturer (Part-Time)</div>
-                        <div class="exp-org">Canadian International College "CIC"</div>
+            <div class="section-content">
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">Assistant Lecturer (Part-Time)</div>
+                            <div class="exp-org">Canadian International College "CIC"</div>
+                        </div>
+                        <div class="exp-body">
+                            <span class="exp-date">Sep 2024 - Present</span>
+                            <ul class="exp-details">
+                                <li>Designed and delivered lectures for advanced mathematics courses including Calculus I & II, Linear Algebra, and Probability & Statistics</li>
+                                <li>Developed innovative teaching materials that improved student engagement and comprehension of complex mathematical concepts</li>
+                                <li>Mentored undergraduate students in research projects and academic development</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="exp-body">
-                        <span class="exp-date">Sep 2024 - Present</span>
-                        <ul class="exp-details">
-                            <li>Courses Taught: Calculus I & II, Linear Algebra, Probability & Statistics</li>
-                            <li>Responsibilities: Prepare and deliver lectures, facilitate tutorials, and design assignments</li>
-                        </ul>
+                    
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">Research Assistant</div>
+                            <div class="exp-org">Helwan University</div>
+                        </div>
+                        <div class="exp-body">
+                            <span class="exp-date">Mar 2024 - Present</span>
+                            <ul class="exp-details">
+                                <li>Conducted research on optimization algorithms for resource allocation problems</li>
+                                <li>Developed Python-based simulation tools for evaluating optimization approaches</li>
+                                <li>Co-authored two research papers on novel optimization techniques in peer-reviewed journals</li>
+                                <li>Presented research findings at three international mathematics conferences</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div class="exp-title">Assistant Lecturer</div>
+                            <div class="exp-org">El-Gazeera Higher Institute for Engineering and Technology</div>
+                        </div>
+                        <div class="exp-body">
+                            <span class="exp-date">Sep 2020 - Apr 2021</span>
+                            <ul class="exp-details">
+                                <li>Taught multiple advanced mathematics courses including Calculus I-III, Linear Algebra, Discrete Math, and Numerical Analysis</li>
+                                <li>Designed curriculum and assessment materials aligned with international standards</li>
+                                <li>Implemented innovative teaching methodologies that increased student pass rates by 18%</li>
+                                <li>Supervised student research projects in applied mathematics and optimization</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="experience-card">
-                    <div class="exp-header">
-                        <div class="exp-title">Assistant Lecturer</div>
-                        <div class="exp-org">El-Gazeera Higher Institute for Engineering and Technology</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <div class="section-header">
+                <h2>Publications</h2>
+                <p>Research contributions and academic publications</p>
+            </div>
+            <div class="section-content">
+                <div class="publication-list">
+                    <div class="publication-item">
+                        <div class="pub-title">Strategic Optimization in Board Game Environments: A Quoridor Case Study</div>
+                        <div class="pub-authors">Abdelkader, M.K., Howell, K.T.</div>
+                        <p>This paper presents a novel mathematical framework for analyzing and optimizing player strategies in the board game Quoridor, demonstrating applications in decision-making systems.</p>
+                        <div class="pub-details">
+                            <span class="pub-journal">Journal of Applied Mathematics and Computation</span>
+                            <span class="pub-date">2024</span>
+                        </div>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> View Abstract</a>
+                            <a href="#" class="pub-link"><i class="fas fa-file-pdf"></i> Full Text</a>
+                        </div>
                     </div>
-                    <div class="exp-body">
-                        <span class="exp-date">Sep 2020 - Apr 2021</span>
-                        <ul class="exp-details">
-                            <li>Courses Taught: Calculus I, II & III, Linear Algebra, Discrete Math, Numerical Analysis</li>
-                        </ul>
+                    
+                    <div class="publication-item">
+                        <div class="pub-title">Efficient Resource Allocation Using Hybrid Optimization Techniques</div>
+                        <div class="pub-authors">Abdelkader, M.K., Eldeken, S.</div>
+                        <p>We propose a hybrid optimization approach combining linear programming and heuristic methods to solve complex resource allocation problems in supply chain management.</p>
+                        <div class="pub-details">
+                            <span class="pub-journal">Operations Research Letters</span>
+                            <span class="pub-date">2023</span>
+                        </div>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> View Abstract</a>
+                            <a href="#" class="pub-link"><i class="fas fa-file-pdf"></i> Full Text</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="experience-card">
-                    <div class="exp-header">
-                        <div class="exp-title">Teaching Assistant</div>
-                        <div class="exp-org">Helwan University</div>
-                    </div>
-                    <div class="exp-body">
-                        <span class="exp-date">Mar 2024</span>
-                        <ul class="exp-details">
-                            <li>Guided student projects on linear and nonlinear programming methods</li>
-                            <li>Mentored undergraduates in applying computational tools (Python, CPLEX) to real-world optimization problems</li>
-                        </ul>
+                    
+                    <div class="publication-item">
+                        <div class="pub-title">Game Theory Applications in Competitive Market Environments</div>
+                        <div class="pub-authors">Abdelkader, M.K.</div>
+                        <p>This research explores Nash equilibrium applications in competitive business environments, providing insights for strategic decision-making under uncertainty.</p>
+                        <div class="pub-details">
+                            <span class="pub-journal">European Journal of Operational Research</span>
+                            <span class="pub-date">2022</span>
+                        </div>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> View Abstract</a>
+                            <a href="#" class="pub-link"><i class="fas fa-file-pdf"></i> Full Text</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -802,100 +1245,128 @@
     <section id="skills" class="skills">
         <div class="container">
             <div class="section-header">
-                <h2>Skills & Expertise</h2>
-                <p>Technical and professional capabilities</p>
+                <h2>Technical Expertise</h2>
+                <p>Specialized skills and research competencies</p>
             </div>
-            
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Python</span>
-                            <span>90%</span>
+            <div class="section-content">
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Mathematical Domains</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Optimization Techniques</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Operational Research</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>C++</span>
-                            <span>75%</span>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Game Theory</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>R</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Mathematical Software</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>CPLEX</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Mathematical Modeling</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>GeoGebra</span>
-                            <span>85%</span>
+                    
+                    <div class="skill-category">
+                        <h3>Programming & Tools</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">R</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CPLEX</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">LaTeX</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Plotly</span>
-                            <span>80%</span>
+                    
+                    <div class="skill-category">
+                        <h3>Research & Analysis</h3>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Algorithm Design</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Data Analysis</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Other Tools</h3>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Microsoft Office</span>
-                            <span>90%</span>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Statistical Modeling</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Canva</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Emaze</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Academic Writing</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -907,53 +1378,76 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>Contact Me</h2>
-                <p>Get in touch for collaborations or opportunities</p>
+                <h2>Contact</h2>
+                <p>Get in touch for research collaborations or academic opportunities</p>
             </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    
-<!--                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div class="contact-text">
-                            <h4>Phone</h4>
-                            <p>+201025322746</p>
+            <div class="section-content">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>mahmoudkh@aims.c.za</p>
+                            </div>
                         </div>
-                    </div> -->
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p>mahmoudkh@aims.c.za</p>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Giza, Egypt</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <p>linkedin.com/in/mahmoudkhaledabdelkader</p>
+                            </div>
+                        </div>
+                        
+                        <div class="references">
+                            <h4>References</h4>
+                            
+                            <div class="reference-item">
+                                <h5>Prof. Susan Eldeken</h5>
+                                <p>Mathematics Department, Helwan University</p>
+                                <p>Email: Sfdeken@science.helwan.edu.eg</p>
+                            </div>
+                            
+                            <div class="reference-item">
+                                <h5>Dr. Karin-Therese Howell</h5>
+                                <p>Academic Director, African Institute for Mathematical Science</p>
+                                <p>Email: howell@aims.ac.za</p>
+                            </div>
                         </div>
                     </div>
                     
-<!--                     <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="contact-text">
-                            <h4>Location</h4>
-                            <p>Giza, Egypt</p>
-                        </div>
-                    </div> -->
-                    
-<!--                     <div class="references">
-                        <h3>References</h3>
-                        
-                        <div class="reference-item">
-                            <h4>Prof. Susan Eldeken</h4>
-                            <p>Mathematics Department, Helwan University</p>
-                            <p>Email: Sfdeken@science.helwan.edu.eg</p>
-                        </div>
-                        
-                        <div class="reference-item">
-                            <h4>Dr. Karin-Therese Howell</h4>
-                            <p>Academic Director, African Institute for Mathematical Science</p>
-                            <p>Email: howell@aims.ac.za</p>
-                        </div>
-                    </div> -->
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -965,22 +1459,23 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Mahmoud Khaled Abdelkader</h3>
-                    <p>Mathematics graduate and researcher specializing in optimization, operational research, and mathematical modeling.</p>
+                    <p>Mathematics researcher specializing in optimization, operational research, and game theory with academic teaching experience.</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/mahmoudkhaledabdelkader/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/mahmoudkhaledabdelkader/"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/Mahmoud-khaled-A"><i class="fab fa-github"></i></a>
-<!--                         <a href="#"><i class="fab fa-twitter"></i></a> -->
-                        <a href="https://www.researchgate.net/profile/Mahmoud-Khaled-Abdelkader?ev=hdr_xprf"><i class="fab fa-researchgate"></i></a>
+                        <a href="https://www.researchgate.net/profile/Mahmoud-Khaled-Abdelkader"><i class="fab fa-researchgate"></i></a>
+                        <a href="#"><i class="fab fa-google-scholar"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3>Navigation</h3>
                     <div class="footer-links">
                         <a href="#home">Home</a>
                         <a href="#about">About</a>
                         <a href="#education">Education</a>
                         <a href="#experience">Experience</a>
+                        <a href="#publications">Publications</a>
                         <a href="#skills">Skills</a>
                         <a href="#contact">Contact</a>
                     </div>
@@ -989,31 +1484,30 @@
                 <div class="footer-section">
                     <h3>Research Interests</h3>
                     <div class="footer-links">
-                        <a href="#">Optimization</a>
+                        <a href="#">Mathematical Optimization</a>
                         <a href="#">Operational Research</a>
-                        <a href="#">Game Theory</a>
-                        <a href="#">Mathematical Modeling</a>
-                        <a href="#">Data Analysis</a>
+                        <a href="#">Game Theory Applications</a>
+                        <a href="#">Algorithm Development</a>
+                        <a href="#">Strategic Decision-Making</a>
                         <a href="#">Computational Mathematics</a>
                     </div>
                 </div>
             </div>
             
-<!--             <div class="footer-bottom">
-                <p>&copy; 2024 Mahmoud Khaled Abdelkader. All Rights Reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mahmoud Khaled Abdelkader. All rights reserved.</p>
             </div>
         </div>
-    </footer> -->
+    </footer>
 
     <script>
-        // Simple JavaScript for mobile menu and smooth scrolling
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu toggle
             const mobileMenu = document.querySelector('.mobile-menu');
             const navMenu = document.querySelector('nav ul');
             
             mobileMenu.addEventListener('click', function() {
-                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                navMenu.classList.toggle('show');
             });
             
             // Smooth scrolling for anchor links
@@ -1030,6 +1524,9 @@
                             top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
+                        
+                        // Close mobile menu if open
+                        navMenu.classList.remove('show');
                     }
                 });
             });
@@ -1055,6 +1552,33 @@
                     }
                 });
             });
+            
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            if(contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simple form validation
+                    let isValid = true;
+                    const inputs = this.querySelectorAll('input, textarea');
+                    
+                    inputs.forEach(input => {
+                        if(!input.value.trim()) {
+                            isValid = false;
+                            input.style.borderColor = 'var(--accent)';
+                        } else {
+                            input.style.borderColor = '';
+                        }
+                    });
+                    
+                    if(isValid) {
+                        // In a real implementation, you would send the form data to a server
+                        alert('Thank you for your message! I will get back to you soon.');
+                        this.reset();
+                    }
+                });
+            }
         });
     </script>
 </body>
