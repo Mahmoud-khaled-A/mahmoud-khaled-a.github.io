@@ -111,6 +111,19 @@
         }
         
         /* Hero Section */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(26, 115, 232, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(26, 115, 232, 0.05) 0%, transparent 20%);
+            pointer-events: none;
+        }
+        
         .hero {
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
             padding: 6rem 0 4rem;
@@ -1082,7 +1095,7 @@
         </div>
     </section>
 
-    <!-- Contact Section - Improved clarity -->
+    <!-- Contact Section - Improved clarity
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
@@ -1129,8 +1142,207 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
+    .contact-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3498db;
+        }
+        
+        .contact-item:hover {
+            background-color: rgba(52, 152, 219, 0.05);
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            font-size: 1.8rem;
+            margin-right: 20px;
+            color: #3498db;
+            min-width: 50px;
+            height: 50px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-text h3 {
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #6c757d;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            display: block;
+            line-height: 1.6;
+        }
+        
+        .contact-text a:hover {
+            color: #3498db;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background-color: #f8f9fa;
+            color: #3498db;
+            border-radius: 50%;
+            transition: all 0.3s;
+            font-size: 1.4rem;
+            border: 2px solid #e9ecef;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: #3498db;
+            color: white;
+            transform: translateY(-5px);
+            border-color: #3498db;
+        }
+        
+        .map-container {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e9ecef;
+        }
+        
+        .map-placeholder {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+        }
+        
+        .map-placeholder i {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 30px;
+            color: #6c757d;
+            font-size: 0.95rem;
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-section {
+                padding: 30px 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Contact Information</h1>
+            <p>Get in touch for research collaborations or academic opportunities</p>
+        </header>
+        
+        <div class="contact-section">
+            <div class="section-title">
+                <h2>Contact Details</h2>
+                <p>Feel free to reach out through any of the following channels</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <a href="mailto:mahmoudkh@aims.c.za">mahmoudkh@aims.c.za</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Location</h3>
+                        <p>Giza, Egypt</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mahmoudkhaledabdelkader/" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/Mahmoud-khaled-A" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.researchgate.net/profile/Mahmoud-Khaled-Abdelkader?ev=hdr_xprf" title="ResearchGate">
+                    <i class="fab fa-researchgate"></i>
+                </a>
+                <a href="#" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>Location Map: Giza, Egypt</p>
+                </div>
+            </div>
+            
+            <div class="footer-note">
+                <p>Typically respond to inquiries within 24-48 hours</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
    
     <script>
         // Mobile menu functionality
