@@ -1,0 +1,454 @@
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+}
+
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontiii
+
+% Header
+\begin{center}
+    {\Huge\textbf{Mahmoud Khaled Abdelkader}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    +201025322746 | \href{mailto:mahmoudkh@aims.c.za}{mahmoudkh@aims.c.za} | 
+    \href{https://sites.google.com/view/mahmoud-khaled-abdelkader}{My Portfolio}
+    }
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    \socialicon{\faLinkedin} \href{https://www.linkedin.com/in/mahmoudkhaledabdelkader/}{mahmoud-khaled-abdelkader} | 
+    \socialicon{\faGithub} \href{https://github.com/Mahmoud-khaled-A}{Mahmoud-khaled-A}
+    }
+\end{center}
+\vspace{-6mm}
+\begin{center}
+    \small{Giza, Egypt}
+\end{center}
+
+\vspace{-4mm}
+
+\section{\textbf{Summary}}
+\vspace{1mm}
+\small{
+Dynamic Mathematics graduate with a Bachelor’s degree in Mathematics and a Master’s degree in Applied Mathematics. Skilled in Optimization and Operational Research, with a focus on strategic algorithms and decision-making processes. Experienced in teaching, mentoring, and academic presentations. Committed to community service and volunteer work.
+}
+\vspace{-2mm}
+
+\section{\textbf{Education}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Heidelberg University}{Heidelberg, Germany}
+{\href{https://drive.google.com/file/d/1wFEeddLXJYCIQrGYZ8K0AeWYLAH5HXJG/view}{Visiting Scholar} }{Apr.2024 - Jun.2024}
+\resumeItemListStart
+\item Supervised by Dr. Michael Winckler, focusing on computational optimization for complex systems.
+\resumeItemListEnd
+
+\resumeSubheading
+{University of Cape Town, African Institute for Mathematical Science (AIMS)}{Cape Town, South Africa}
+{Master’s degree in Applied Mathematics}{Sep. 2023 - Jul. 2024}
+\resumeItemListStart
+\item Thesis: “Mathematical Modelling and Implementation of Game Strategy for the Board Game Quoridor”.
+\item Relevant Coursework: Nonlinear Optimization, Game Theory, Mathematical Modeling.
+\resumeItemListEnd
+
+\resumeSubheading
+{Helwan University}{Helwan, Egypt}
+{Pre-Master}{Sep. 2022 -May 2023}
+\resumeItemListStart
+\item Courses: Functional and Numerical Analysis, Abstract Algebra, Ordinary Differential Equations, Partial Differential Equations, and Topology.
+\resumeItemListEnd
+
+\resumeSubheading
+{Helwan University}{Helwan, Egypt}
+{Bachelor of Science in Mathematics}{Sep. 2016 - Jul. 2020}
+\resumeItemListStart
+\item Gained a solid knowledge in Operational Research, Real Analysis, and Linear Algebra.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Teaching and Mentoring Experience}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Canadian International College "CIC"}{Cairo, Egypt}
+{Assistant Lecturer (Part-Time)}{Sep. 2024 - Present}
+\resumeItemListStart
+\item Courses Taught: Calculus I \& II, Linear Algebra, Probability \& Statistics.
+\item Responsibilities: Prepare and deliver lectures, facilitate tutorials, and design assignments.
+\resumeItemListEnd
+
+\resumeSubheading
+{El-Gazeera Higher Institute for Engineering and Technology}{Cairo, Egypt}
+{Assistant Lecturer}{Sep. 2024 - Present}
+\resumeItemListStart
+\item Courses Taught: Calculus I \& II \& III, Linear Algebra, Discrete Math, and Numerical Analysis.
+\resumeItemListEnd
+
+\resumeSubheading
+{El-Gazeera Higher Institute for Engineering and Technology}{Cairo, Egypt}
+{Teaching Assistant}{Oct. 2022 - Aug.2023}
+\resumeItemListStart
+\item Courses Taught: Calculus I \& II \& III, Linear Algebra, Discrete Math, and Numerical Analysis.
+\resumeItemListEnd
+
+\resumeSubheading
+{Helwan University}{Helwan, Egypt}
+{Teaching Assistant}{Sep. 2020 -
+Apr. 2021}
+\resumeItemListStart
+\item Guided student projects on linear and nonlinear programming methods.
+\item Mentored undergraduates in applying computational tools (Python, CPLEX) to real-world optimization problems.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+
+
+
+\section{\textbf{Publications}}
+\vspace{-0.4mm}
+\small{
+\begin{enumerate}[leftmargin=*, labelsep=0.5em, align=left, widest={[1]}, itemindent=0em, label={\textbf{[\arabic*]}]}]
+    \item[\textbf{[1]}] Fathy, E., \& Khaled Abdelkader, M. (in preparation). \textbf{A novel methodology for multilevel quadratic programming under interval-valued intuitionistic fuzzy uncertainty}. 
+    \begin{itemize}
+        \item Fuzzy-based linearization approach for hierarchical decision-making; validated with numerical simulations.
+    \end{itemize}
+
+    \item[\textbf{[2]}] Fathy, E., \& Khaled Abdelkader, M. (in preparation). \textbf{Optimization algorithms for multilevel solid transportation problems in a rough interval environment}. 
+
+    \begin{itemize}
+        \item Constraint, interactive, and fuzzy frameworks for uncertainty resolution in supply chain contexts.
+    \end{itemize}
+\end{enumerate}
+}
+\vspace{-6mm}
+
+\section{\textbf{Conferences and Workshops}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+{After Research-Party}{Heidelberg University}{May 2024}{}
+\resumeItemListStart
+\item Presented a research poster on 'Mathematical Modelling and Game Strategy for Quoridor'.
+\resumeItemListEnd
+
+\resumeProject
+{Siyakhula Event}{AIMS, South Africa}{Mar 2024}{}
+\resumeItemListStart
+\item Presented a research poster on 'Mathematical Modelling and Game Strategy for Quoridor'.
+\resumeItemListEnd
+
+\resumeProject
+{Linear and Nonlinear Optimization Workshop}{AIMS, South Africa}{Mar 2024}{}
+\resumeItemListStart
+\item Participated in a 3-week workshop focusing on linear and nonlinear optimization.
+\resumeItemListEnd
+
+\resumeProject
+{\href{https://sites.google.com/view/spring-school-stellenbosch/registration?authuser=0}{Spring School "On Symmetries of Differential \& Difference Equations and Their Applications"}}{Stellenbosch, South Africa}{Oct 2023}{}
+\resumeItemListStart
+\item Participated in the Spring School on symmetries of differential and difference equations.
+\resumeItemListEnd
+
+\resumeProject
+{\href{http://leroy.perso.math.cnrs.fr/QFRC2023/QFRC-2023.html}{Quadratic Forms, Rings and Codes}}{Laboratoire de Mathematiques de Lens, France}{Aug 2023}{}
+\resumeItemListStart
+\item Participated in an online conference on quadratic forms, rings, and codes.
+\resumeItemListEnd
+
+\resumeProject
+{\href{https://drive.google.com/file/d/11xDh7Ywfn-CQ1OC37PS1ca1zWv8duHSZ/view}{Data Analysis using Advanced Computational Techniques}}{Amity University Kolkata, North India, Online}{Jul 2023}{}
+\resumeItemListStart
+\item Participated in a five-day faculty development program on data analysis.
+\resumeItemListEnd
+
+\resumeProject
+{\href{https://events.math.unipd.it/CRaM/home}{Categories, Rings and Modules}}{Online}{Jan 2023}{}
+\resumeItemListStart
+\item Participated in a conference in honor of Alberto Facchini.
+\resumeItemListEnd
+
+\resumeProject
+{\href{https://sites.google.com/view/algebra-winter-school}{Rings, Algebras, and Category Towards Coding and Computer Algebras}}{CIMPA School, Helwan University}{Dec 2022}{}
+\resumeItemListStart
+\item Participated in a winter school on rings, algebras, and category theory.
+\resumeItemListEnd
+
+\resumeProject
+{Topology and its Applications}{Helwan University}{Jul 2019}{}
+\resumeItemListStart
+\item Participated in a conference on topology and its applications.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Awards and Achievements}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+{Grant to Organize \href{https://sites.google.com/view/indabaxegypt2025}{IndabaX Egypt} 2025}{\href{https://deeplearningindaba.com/2025/}{Deep Learning Indaba} and \href{https://mastercardfdn.org/}{MasterCard Foundation}}{Feb 2025}{}
+\resumeItemListStart
+\item Funding Amount: 3000 USD
+\resumeItemListEnd
+
+\resumeProject
+{\href{https://drive.google.com/file/d/1wFEeddLXJYCIQrGYZ8K0AeWYLAH5HXJG/view}{Visiting Scholar Funding}}{Heidelberg University's HGS MathComp}{Apr 2024 - May 2024}{}
+\resumeItemListStart
+\item Funding Amount: 3200 EUR
+\resumeItemListEnd
+
+\resumeProject
+{\href{https://drive.google.com/file/d/1Cj1eicnGzgb8cs7Li_7Yz7DgOE1Rk_vL/view}{Fully Funded Master’s Scholarship}}{Cape Town University, South Africa}{Oct 2023}{}
+\resumeItemListStart
+\item Funding Source: \href{https://drive.google.com/file/d/1Cw4_Y6gpo1ibaBJZuy6qBuG3kyzvXKQj/view}{Mastercard Foundation} and \href{https://drive.google.com/file/d/1Cj1eicnGzgb8cs7Li_7Yz7DgOE1Rk_vL/view}{AIMS}
+\item Funding Amount: 9000 USD
+\resumeItemListEnd
+
+\resumeProject
+{Ideal Student Competition}{Helwan University}{Dec 2019}{}
+\resumeItemListStart
+\item Seventh Place in the Ideal Student Competition at Helwan University.
+\resumeItemListEnd
+
+\resumeProject
+{Ideal Student Certificate}{Faculty of Science, Helwan University}{Dec 2019}{}
+\resumeItemListStart
+\item Received the Ideal Student Certificate from the Faculty of Science.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Professional Memberships}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumePOR{\href{https://www.theorsociety.com/}{Operation Research Society}}{ Student Member}{May 2024 - Present}
+\resumePOR{\href{https://drive.google.com/file/d/1u1IxL-j9GyVTEuRObLXcH8iR-3JnPC0H/view?usp=sharing}{European Mathematical Society}}{ Student Member}{Apr 2024 - Apr 2026}
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Skills}}
+\vspace{-0.4mm}
+\resumeHeadingSkillStart
+
+\resumeSubItem{Programming Languages:}{\href{https://drive.google.com/file/d/1CakxGWXE1Zg6QiP_6TFMqxniJFTiJY9P/view?usp=sharing}{Python}, C++, R}
+\resumeSubItem{Mathematical Software:}{CPLEX, GeoGebra, plotly}
+\resumeSubItem{Data Analysis:}{R software, Microsoft Office}
+\resumeSubItem{Other Tools:}{Canva, Emaze}
+
+\resumeHeadingSkillEnd
+\vspace{-6mm}
+
+\section{\textbf{Volunteer and Social Work}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+{Community Service}{Mastercard Foundation Scholar}{Mar 2024}{}
+\resumeItemListStart
+\item Engaged in educational tutoring at Muizenberg High, South Africa.
+\resumeItemListEnd
+
+\resumeProject
+{\href{https://www.siyakhula.aims.ac.za/}{Siyakhula Event}}{AIMS, South Africa}{Mar 2024}{}
+\resumeItemListStart
+\item Volunteered to boost Africa’s mathematical sciences.
+\resumeItemListEnd
+
+\resumeProject
+{CIMPA (\href{https://sites.google.com/view/algebra-winter-school}{Algebra Winter School})}{Helwan University}{Dec 2022}{}
+\resumeItemListStart
+\item Facilitated academic exchanges and supported workshop organization.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Personal Information}}
+% \vspace{-0.4mm}
+\vspace{0.2 cm}
+\small{
+\textbf{Date of Birth:} 22 Dec. 1997 \\
+\textbf{Citizenship:} Egyptian
+}
+\vspace{-2mm}
+
+\section{\textbf{References}}
+\vspace{0.2cm}
+\small{
+\begin{enumerate}[leftmargin=*,labelsep=2mm]
+\item \textbf{Prof. Susan Eldeken}\\
+   Mathematics Department, Helwan University\\
+   Email: \href{Sfdeken@science.helwan.edu.eg}{Sfdeken@science.helwan.edu.eg}\\
+
+\item \textbf{Dr. Karin-Therese Howell}\\
+   Academic Director, African Institute for Mathematical Science\\
+   Email: \href{howell@aims.ac.za}{howell@aims.ac.za}\\
+
+\item \textbf{Dr. Eman Fathy}\\
+   Department of Mathematics, Faculty of Science, Helwan University\\
+   Email: \href{eman.fathy@science.helwan.edu.eg}{eman.fathy@science.helwan.edu.eg}\\
+\end{enumerate}
+}
+
+\end{document}
