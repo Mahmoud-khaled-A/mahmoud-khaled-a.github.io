@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.8)  8 AUG 2025 02:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.8)  8 AUG 2025 03:22
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/Mahmoud/my cv/My Website Github/Mahmoud-Khaled-A.github.io/CV/main.tex"
-(d:/Mahmoud/my cv/My Website Github/Mahmoud-Khaled-A.github.io/CV/main.tex
+**"d:/Mahmoud/my cv/My Website Github/Mahmoud-Khaled-A.github.io/CV/Mahmoud's CV.tex"
+(d:/Mahmoud/my cv/My Website Github/Mahmoud-Khaled-A.github.io/CV/Mahmoud's CV.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-19>
 (C:\Users\DELL\AppData\Local\MiKTeX\tex/latex/base\article.cls
@@ -771,8 +771,8 @@ Package nfssext-cfr Warning: Patching font initialisation macro for sans. on inp
 
 Package nfssext-cfr Warning: Patching font initialisation macro for typewriter. on input line 723.
 
-) (main.aux)
-\openout1 = `main.aux'.
+) (Mahmoud's CV.aux)
+\openout1 = `"Mahmoud's CV.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/lmm/m/it on input line 149.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 149.
@@ -862,9 +862,9 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 149.
-(main.out) (main.out)
+(Mahmoud's CV.out) (Mahmoud's CV.out)
 \@outlinefile=\write4
-\openout4 = `main.out'.
+\openout4 = `"Mahmoud's CV.out"'.
 
 \c@lstlisting=\count374
  (C:\Users\DELL\AppData\Local\MiKTeX\tex/latex/base\inputenc.sty
@@ -905,26 +905,26 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [2]
 
-[3] (main.aux)
+[3] (Mahmoud's CV.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-19>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4FC2615A19499CB00484E042D23C05F2;1483.
+Package rerunfilecheck Info: File `"Mahmoud's CV".out' has not changed.
+(rerunfilecheck)             Checksum: 622E3F622F0731175DF83C05D244D85D;1378.
  ) 
 Here is how much of TeX's memory you used:
- 33068 strings out of 468149
- 667470 string characters out of 5435896
- 1182615 words of memory out of 5000000
- 61109 multiletter control sequences out of 15000+600000
+ 33062 strings out of 468149
+ 667524 string characters out of 5435896
+ 1182669 words of memory out of 5000000
+ 61104 multiletter control sequences out of 15000+600000
  668937 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,11n,106p,1310b,692s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,11n,106p,1318b,668s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/fontawesome5/FontAwesome5Brands-Regular.pfb><C:/Users/DELL/AppData/Local/MiKTeX/fonts/type1/public/lm/lmsy6.pfb><C:/Users/DELL/AppData/Local/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/DELL/AppData/Local/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/DELL/AppData/Local/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (3 pages, 112395 bytes).
+Output written on "Mahmoud's CV.pdf" (3 pages, 113224 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 160 PDF objects out of 1000 (max. 8388607)
+ 17 named destinations out of 1000 (max. 500000)
+ 237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

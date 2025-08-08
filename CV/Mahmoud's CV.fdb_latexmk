@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1754607875.43068 "d:/Mahmoud/my cv/My Website Github/Mahmoud-Khaled-A.github.io/CV/main.tex" "main.pdf" "main" 1754607879.85613 0
+["pdflatex"] 1754612572.85924 "d:/Mahmoud/my cv/My Website Github/Mahmoud-Khaled-A.github.io/CV/Mahmoud's CV.tex" "Mahmoud's CV.pdf" "Mahmoud's CV" 1754612576.02542 0
   "C:/Program Files/MiKTeX/fonts/enc/dvips/fontawesome5/fa5brands0.enc" 1651500229 2920 d63721872b8c77041b88e51b8f7c291d ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/cfr-lm/clmr2j8t10.tfm" 1751102747 12748 c45ca9bac8e29a65384a9d884d7c129f ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/fontawesome5/fa5brands0.tfm" 1651500229 1380 a61d7c2860b3f6d342213a6b9b229e9e ""
@@ -217,13 +217,13 @@
   "C:/Users/DELL/AppData/Local/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/DELL/AppData/Local/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/DELL/AppData/Local/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "d:/Mahmoud/my cv/My Website Github/Mahmoud-Khaled-A.github.io/CV/main.tex" 1754607872 15780 91077146baca34a6c774f452fcbdfec6 ""
-  "main.aux" 1754607879 1548 049222809de2c559d4d1de5943f5f0b4 "pdflatex"
-  "main.out" 1754607879 1483 4fc2615a19499cb00484e042d23c05f2 "pdflatex"
-  "main.tex" 1754607872 15780 91077146baca34a6c774f452fcbdfec6 ""
+  "Mahmoud's CV.aux" 1754612575 1426 af62d8b96bafa8cd390ecde331025312 "pdflatex"
+  "Mahmoud's CV.out" 1754612575 1378 622e3f622f0731175df83c05d244d85d "pdflatex"
+  "Mahmoud's CV.tex" 1754612571 17006 a2dcf8cb5e5dac512b9cc3a397dac437 ""
+  "d:/Mahmoud/my cv/My Website Github/Mahmoud-Khaled-A.github.io/CV/Mahmoud's CV.tex" 1754612571 17006 a2dcf8cb5e5dac512b9cc3a397dac437 ""
   (generated)
-  "main.aux"
-  "main.log"
-  "main.out"
-  "main.pdf"
+  "Mahmoud's CV.aux"
+  "Mahmoud's CV.log"
+  "Mahmoud's CV.out"
+  "Mahmoud's CV.pdf"
   (rewritten before read)

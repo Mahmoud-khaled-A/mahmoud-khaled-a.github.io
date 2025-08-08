@@ -1,7 +1,7 @@
 PWD d:\Mahmoud\my cv\My Website Github\Mahmoud-Khaled-A.github.io\CV
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\Mahmoud\my cv\My Website Github\Mahmoud-Khaled-A.github.io\CV\main.tex
-OUTPUT main.log
+INPUT d:\Mahmoud\my cv\My Website Github\Mahmoud-Khaled-A.github.io\CV\Mahmoud's CV.tex
+OUTPUT Mahmoud's CV.log
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\base\size11.clo
@@ -298,14 +298,14 @@ INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libr
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryfadings.code.tex
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\generic\pgf\libraries\pgflibraryfadings.code.tex
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\generic\pgf\libraries\pgflibraryfadings.code.tex
-OUTPUT main.pdf
+OUTPUT Mahmoud's CV.pdf
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\tcolorbox\tcbposter.code.tex
 INPUT C:\Program Files\MiKTeX\tex\latex\nfssext-cfr\nfssext-cfr-nnfss.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\nfssext-cfr\nfssext-cfr-nnfss.sty
-INPUT .\main.aux
-INPUT .\main.aux
-INPUT main.aux
-OUTPUT main.aux
+INPUT .\Mahmoud's CV.aux
+INPUT .\Mahmoud's CV.aux
+INPUT Mahmoud's CV.aux
+OUTPUT Mahmoud's CV.aux
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\lm\omllmm.fd
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\lm\omllmm.fd
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\lm\omllmm.fd
@@ -326,13 +326,13 @@ INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.st
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
-INPUT .\main.out
-INPUT .\main.out
-INPUT main.out
-INPUT main.out
-INPUT .\main.out
-INPUT .\main.out
-OUTPUT main.out
+INPUT .\Mahmoud's CV.out
+INPUT .\Mahmoud's CV.out
+INPUT Mahmoud's CV.out
+INPUT Mahmoud's CV.out
+INPUT .\Mahmoud's CV.out
+INPUT .\Mahmoud's CV.out
+OUTPUT Mahmoud's CV.out
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\psnfss\t1ppl.fd
@@ -395,9 +395,9 @@ INPUT C:\Users\DELL\AppData\Local\MiKTeX\fonts\vf\adobe\palatino\pplr8t.vf
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\fonts\tfm\adobe\palatino\pplr8r.tfm
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\fonts\vf\adobe\palatino\pplri8t.vf
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\fonts\tfm\adobe\palatino\pplri8r.tfm
-INPUT main.aux
-INPUT .\main.out
-INPUT .\main.out
+INPUT Mahmoud's CV.aux
+INPUT .\Mahmoud's CV.out
+INPUT .\Mahmoud's CV.out
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\fontawesome5\FontAwesome5Brands-Regular.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\fontawesome5\FontAwesome5Brands-Regular.pfb
 INPUT C:\Users\DELL\AppData\Local\MiKTeX\fonts\type1\public\lm\lmsy6.pfb
