@@ -850,6 +850,92 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* New Grid Styles for Awards & Conferences */
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-card {
+            background: white;
+            padding: 2.2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 4px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(26, 115, 232, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .grid-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(26, 115, 232, 0.1);
+            border-radius: 50%;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--medium-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            color: var(--primary);
+        }
+
+        .card-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card-text {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: auto;
+        }
     </style>
 </head>
 
@@ -1120,111 +1206,113 @@
         </div>
     </section>
 
-    <!-- Conferences Section -->
-    <section id="conferences" class="education">
+    <!-- Conferences Section - Grid Layout -->
+    <section id="conferences" class="conferences">
         <div class="container">
             <div class="section-header">
                 <h2>Conferences and Workshops</h2>
-                <p>Academic engagement and presentations</p>
+                <p>Academic engagement and key presentations</p>
             </div>
 
-            <div class="education-container">
-                <div class="education-item">
-                    <div class="education-header">
-                        <div class="education-title">Deep Learning Indaba 2025</div>
-                        <div class="education-date">Aug 2025</div>
-                    </div>
-                    <div class="education-org">University of Rwanda, Rwanda</div>
-                    <div class="education-details">
-                        <p>Presented a research poster titled "Multi-Objective Route Optimization Using Graph Neural
-                            Networks".</p>
-                    </div>
-                </div>
-
-                <div class="education-item">
-                    <div class="education-header">
-                        <div class="education-title">IndabaX Egypt 2025</div>
-                        <div class="education-date">Jul 2025</div>
-                    </div>
-                    <div class="education-org">Academy of Scientific Research and Technology (ASRT), Egypt</div>
-                    <div class="education-details">
-                        <p>Coordinated and Organized IndabaX Egypt 2025.</p>
+            <div class="grid-section">
+                <!-- Conference 1 -->
+                <div class="grid-card">
+                    <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="card-date">Aug 2025</div>
+                    <div class="card-title">Deep Learning Indaba 2025</div>
+                    <div class="card-subtitle">University of Rwanda</div>
+                    <div class="card-text">
+                        Presented a research poster on "Multi-Objective Route Optimization Using Graph Neural Networks".
                     </div>
                 </div>
 
-                <div class="education-item">
-                    <div class="education-header">
-                        <div class="education-title">Siyakhula Event</div>
-                        <div class="education-date">Mar 2024</div>
+                <!-- Conference 2 -->
+                <div class="grid-card">
+                    <div class="card-icon"><i class="fas fa-users-cog"></i></div>
+                    <div class="card-date">Jul 2025</div>
+                    <div class="card-title">IndabaX Egypt 2025</div>
+                    <div class="card-subtitle">ASRT, Egypt</div>
+                    <div class="card-text">
+                        Coordinated and Organized the IndabaX Egypt 2025 event, fostering local AI community growth.
                     </div>
-                    <div class="education-org">AIMS, South Africa</div>
-                    <div class="education-details">
-                        <p>Presented a research poster titled "Mathematical Modelling and Game Strategy for Quoridor".
-                        </p>
+                </div>
+
+                <!-- Conference 3 -->
+                <div class="grid-card">
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="card-date">Mar 2024</div>
+                    <div class="card-title">Siyakhula Event</div>
+                    <div class="card-subtitle">AIMS, South Africa</div>
+                    <div class="card-text">
+                        Presented a research poster titled "Mathematical Modelling and Game Strategy for Quoridor".
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Awards Section -->
-    <section id="awards" class="experience">
+    <!-- Awards Section - Grid Layout -->
+    <section id="awards" class="awards">
         <div class="container">
             <div class="section-header">
                 <h2>Awards and Achievements</h2>
+                <p>Recognition of academic excellence and research potential</p>
             </div>
 
-            <div class="experience-container">
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Fully Funded PhD Scholarship</div>
-                        <div class="experience-date">Sep 2025 - Jul 2029</div>
+            <div class="grid-section">
+                <!-- Award 1 -->
+                <div class="grid-card">
+                    <div class="card-icon"><i class="fas fa-award"></i></div>
+                    <div class="card-date">Sep 2025 - Jul 2029</div>
+                    <div class="card-title">Fully Funded PhD Scholarship</div>
+                    <div class="card-subtitle">Concordia University</div>
+                    <div class="card-text">
+                        Awarded full funding for doctoral studies in Engineering and Computer Science.
                     </div>
-                    <div class="experience-org">Concordia University, Canada</div>
-                    <ul class="experience-details">
-                        <li>Funding Amount: 127,463 USD</li>
-                    </ul>
                 </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Best Poster Award</div>
-                        <div class="experience-date">Aug 2025</div>
+                <!-- Award 2 -->
+                <div class="grid-card">
+                    <div class="card-icon"><i class="fas fa-star"></i></div>
+                    <div class="card-date">Aug 2025</div>
+                    <div class="card-title">Best Poster Award</div>
+                    <div class="card-subtitle">Deep Learning Indaba 2025</div>
+                    <div class="card-text">
+                        Received recognition for outstanding research presentation in Rwanda.
                     </div>
-                    <div class="experience-org">Deep Learning Indaba 2025, Rwanda</div>
                 </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Grant to Organize IndabaX Egypt 2025</div>
-                        <div class="experience-date">Feb 2025</div>
+                <!-- Award 3 -->
+                <div class="grid-card">
+                    <div class="card-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="card-date">Feb 2025</div>
+                    <div class="card-title">Organization Grant</div>
+                    <div class="card-subtitle">Deep Learning Indaba & MasterCard Fdn</div>
+                    <div class="card-text">
+                        Secured grant to organize the IndabaX Egypt 2025 conference.
                     </div>
-                    <div class="experience-org">Deep Learning Indaba and MasterCard Foundation</div>
-                    <ul class="experience-details">
-                        <li>Funding Amount: 2000 USD</li>
-                    </ul>
                 </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Visiting Scholar Funding</div>
-                        <div class="experience-date">Apr 2024</div>
+                <!-- Award 4 -->
+                <div class="grid-card">
+                    <div class="card-icon"><i class="fas fa-globe-europe"></i></div>
+                    <div class="card-date">Apr 2024</div>
+                    <div class="card-title">Visiting Scholar Funding</div>
+                    <div class="card-subtitle">Heidelberg University</div>
+                    <div class="card-text">
+                        Funding for research visit at HGS MathComp, Germany.
                     </div>
-                    <div class="experience-org">Heidelberg University's HGS MathComp</div>
-                    <ul class="experience-details">
-                        <li>Funding Amount: 3200 EUR</li>
-                    </ul>
                 </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-title">Fully Funded Master’s Scholarship</div>
-                        <div class="experience-date">Oct 2023 - Jul 2024</div>
+                <!-- Award 5 -->
+                <div class="grid-card">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="card-date">Oct 2023 - Jul 2024</div>
+                    <div class="card-title">Master’s Scholarship</div>
+                    <div class="card-subtitle">Mastercard Foundation & AIMS</div>
+                    <div class="card-text">
+                        Fully funded scholarship for Master's in Applied Mathematics.
                     </div>
-                    <div class="experience-org">Mastercard Foundation and AIMS</div>
-                    <ul class="experience-details">
-                        <li>Funding Amount: 9000 USD</li>
-                    </ul>
                 </div>
             </div>
         </div>
